@@ -1,5 +1,3 @@
-using System.Net;
-using System.Net.Sockets;
 using Polly.Contrib.Simmy;
 using Polly.Contrib.Simmy.Outcomes;
 
@@ -13,8 +11,6 @@ public class ChaosProductServiceDecorator : IProductService
     public ChaosProductServiceDecorator(IProductService inner)
     {
         _inner = inner;
-        var result = new HttpResponseMessage(HttpStatusCode.BadRequest);
-        var fault = new SocketException(errorCode: 10013);
         _asyncChaosPolicy = MonkeyPolicy
             .InjectExceptionAsync((with) => with.Fault(new InvalidDataException("Chaos Monkey says Hi!"))
                 .InjectionRate(0.5)
