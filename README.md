@@ -1,2 +1,1 @@
-# SDNCast
-Polly and Simmy sample code
+# Chaos Engineering with Simmy
