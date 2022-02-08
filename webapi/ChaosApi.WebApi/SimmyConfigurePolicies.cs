@@ -20,4 +20,7 @@ public class SimmyConfigurePolicies
         public bool Enabled { get; set; }
         public double InjectionRate { get; set; }
     }
+    
+    public bool EnableProductServiceChaos { get; set; }
+    public bool EnableResilientProductService { get; set; }
 }
